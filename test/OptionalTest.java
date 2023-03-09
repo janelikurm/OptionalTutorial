@@ -1,11 +1,10 @@
 import org.junit.jupiter.api.Test;
 
 import java.time.LocalDate;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
-import java.util.Optional;
+import java.util.*;
 
+import static java.time.Month.APRIL;
+import static java.time.Month.JANUARY;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 class OptionalTest {
@@ -21,10 +20,12 @@ class OptionalTest {
     void nameNotFound() {
         assertEquals(Optional.empty(), o.searchUser("Tõnu"));
     }
+
     @Test
     void nameEmpty() {
         assertEquals(Optional.empty(), o.searchUser(""));
     }
+
     @Test
     void namePartialSearch() {
         assertEquals(List.of(new User("Mati"), new User("Mari")), o.partialSearchUser("Ma"));
@@ -32,18 +33,34 @@ class OptionalTest {
 
     @Test
     void namePartialSearchOneLetter() {
-        assertEquals(List.of(new User("Kati"),new User("Mati"), new User("Mari"),new User("Jüri"),new User("Tiina")), o.partialSearchUser("i"));
+        assertEquals(List.of(new User("Kati"), new User("Mati"), new User("Mari"), new User("Jüri"), new User("Tiina")), o.partialSearchUser("i"));
     }
+
     @Test
     void findExistingBirthday() {
-        assertEquals(Optional.of(LocalDate.of(2000,4, 25)),o.findBirthDay("Kati"));
+        assertEquals(Optional.of(LocalDate.of(2000, 4, 25)), o.findBirthDay("Kati"));
     }
+
     @Test
     void findNonExistingBirthday() {
-        assertEquals(Optional.empty(),o.findBirthDay("Tiina"));
+        assertEquals(Optional.empty(), o.findBirthDay("Tiina"));
     }
+
     @Test
     void findTodayBdayKid() {
-        assertEquals(List.of(new User("Mari"), new User("Jüri")),o.findTodayBdayKid());
+        assertEquals(List.of(new User("Mari"), new User("Jüri")), o.findTodayBdayKid());
     }
+
+    @Test
+    void usersByNameTest() {
+        assertEquals(Map.of(
+                "Kati", LocalDate.of(2000, APRIL, 25),
+                "Mati", LocalDate.of(1996, JANUARY, 8),
+                "Mari", LocalDate.now(),
+                "Jüri", LocalDate.now(),
+                "Tiina", LocalDate.now(),
+                "Kalev", LocalDate.of(2000, APRIL, 25)), o.usersByName());
+    }
+
+
 }

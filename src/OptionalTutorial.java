@@ -2,7 +2,6 @@ import java.time.LocalDate;
 import java.time.Month;
 import java.util.*;
 import java.util.stream.Collectors;
-import java.util.stream.Stream;
 
 import static java.time.Month.*;
 
@@ -13,15 +12,13 @@ public class OptionalTutorial {
             new User("Mati", LocalDate.of(1996, JANUARY, 8)),
             new User("Mari", LocalDate.now()),
             new User("Jüri", LocalDate.now()),
-            new User("Tiina"),
+            new User("Tiina",LocalDate.now()),
             new User("Kalev", LocalDate.of(2000, APRIL, 25))
     );
 
     public static Optional<User> searchUser(String name) {
 
         return users.stream().filter(user -> user.name.equals(name)).findAny();
-
-//
 //        User result = null;
 //        for (User u : users) {
 //            if (Objects.equals(u.name, name)) {
@@ -83,5 +80,17 @@ public class OptionalTutorial {
 //            }
 //        }
 //        return isBirthdayKid;
+    }
+
+    Map<String,LocalDate> usersByName(){
+
+        return users.stream().collect(Collectors.toMap(user -> user.name, user -> user.birthDay));
+
+//        Map<String,LocalDate> usersWithBirthdays = new HashMap<>();
+//        for (User user : users) {
+//            usersWithBirthdays.put(user.name, user.birthDay);
+//        }
+//
+//        return usersWithBirthdays;
     }
 }
