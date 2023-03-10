@@ -3,8 +3,7 @@ import org.junit.jupiter.api.Test;
 import java.time.LocalDate;
 import java.util.*;
 
-import static java.time.Month.APRIL;
-import static java.time.Month.JANUARY;
+import static java.time.Month.*;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 class OptionalTest {
@@ -43,24 +42,25 @@ class OptionalTest {
 
     @Test
     void findNonExistingBirthday() {
-        assertEquals(Optional.empty(), o.findBirthDay("Tiina"));
+        assertEquals(Optional.empty(), o.findBirthDay("Mari"));
     }
 
     @Test
     void findTodayBdayKid() {
-        assertEquals(List.of(new User("Mari"), new User("Jüri")), o.findTodayBdayKid());
+        assertEquals(List.of(new User("Jüri"), new User("Tiina")), o.findTodayBdayKid());
     }
 
     @Test
     void usersByNameTest() {
-        assertEquals(Map.of(
-                "Kati", LocalDate.of(2000, APRIL, 25),
-                "Mati", LocalDate.of(1996, JANUARY, 8),
-                "Mari", LocalDate.now(),
-                "Jüri", LocalDate.now(),
-                "Tiina", LocalDate.now(),
-                "Kalev", LocalDate.of(2000, APRIL, 25)), o.usersByName());
+        Map<String, List<LocalDate>> map = new HashMap<>();
+        map.put("Kati", Collections.singletonList(LocalDate.of(2000, APRIL, 25)));
+        map.put("Mati", Collections.singletonList(LocalDate.of(1996, JANUARY, 8)));
+        map.put("Jüri", Collections.singletonList(LocalDate.now()));
+        map.put("Tiina", Collections.singletonList(LocalDate.now()));
+        map.put("Kalev", List.of(LocalDate.of(2010, MARCH, 25), LocalDate.of(2001, APRIL, 14), LocalDate.of(2005, JANUARY, 6)));
+        assertEquals(map.toString(), o.usersByName().toString());
     }
+
 
 
 }
