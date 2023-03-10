@@ -17,7 +17,6 @@ class ListTutorialTest {
     void sumOfElementsWithNull() {
         assertEquals(3, listTutorial.sumOfList(asList(1, 2, null)));
     }
-
     @Test
     void sumOfElements1() {
         assertEquals(61, listTutorial.sumOfList(List.of(5, 26, 3, 8, 19)));
@@ -25,6 +24,14 @@ class ListTutorialTest {
     @Test
     void concatenateLists() {
         assertEquals(List.of(1, 2, 3, 4, 5, 6), listTutorial.concatLists(List.of(1, 2, 3), List.of(4, 5, 6)));
+    }
+    @Test
+    void concatenateEmptyLists() {
+        assertEquals(List.of(), listTutorial.concatLists(List.of(), List.of()));
+    }
+    @Test
+    void concatenateIfOneEmptyLists() {
+        assertEquals(List.of(4, 5, 6), listTutorial.concatLists(List.of(4, 5, 6), List.of()));
     }
 
     @Test

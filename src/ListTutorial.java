@@ -61,7 +61,12 @@ public class ListTutorial {
     List<Integer> sortList(List<Integer> list1) {
 
         List<Integer> sortedList = new ArrayList<>();
+        for (int i = 0; i < list1.size(); i++) {
+            for (int j = i + 1; j < list1.size() ; j++) {
 
+            }
+
+        }
 
 
         return new ArrayList<>();
