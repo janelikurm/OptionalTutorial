@@ -59,18 +59,27 @@ public class ListTutorial {
     }
 
     List<Integer> sortList(List<Integer> list1) {
-
-        List<Integer> sortedList = new ArrayList<>();
-        for (int i = 0; i < list1.size(); i++) {
-            for (int j = i + 1; j < list1.size() ; j++) {
-
-            }
-
-        }
-
-
-        return new ArrayList<>();
+//
+        List<Integer> sortedList = new ArrayList<>(list1);
+//
+//        for (int j = 0; j < sortedList.size(); j++) {
+//            for (int i = sortedList.size() - 1; i >= 1; i--) {
+//                if (sortedList.get(i-1) > sortedList.get(i)) {
+//
+//                    int tmp = sortedList.get(i);
+//                    sortedList.set(i, sortedList.get(i-1));
+//                    sortedList.set(i-1, tmp);
+//                    System.out.println(sortedList);
+//                }
+//            }
+//        }
+//
+//        return sortedList;
+        Collections.sort(sortedList);
+        return sortedList;
     }
+
+
 
 
 }

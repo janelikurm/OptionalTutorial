@@ -46,4 +46,8 @@ class ListTutorialTest {
     void reversedListWithNull() {
         assertEquals(asList(7, 5, 6, null, 3, 2), listTutorial.reverseList(asList(2, 3, null, 6, 5, 7)));
     }
+    @Test
+    void sortList() {
+        assertEquals(asList(1, 2, 3, 5, 8), listTutorial.sortList(asList(5, 3, 8, 2, 1)));
+    }
 }
