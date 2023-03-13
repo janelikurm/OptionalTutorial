@@ -1,7 +1,4 @@
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
-import java.util.Objects;
+import java.util.*;
 import java.util.stream.Stream;
 
 public class ListTutorial {
@@ -61,7 +58,7 @@ public class ListTutorial {
     List<Integer> sortList(List<Integer> list1) {
 //
         List<Integer> sortedList = new ArrayList<>(list1);
-//
+////
 //        for (int j = 0; j < sortedList.size(); j++) {
 //            for (int i = sortedList.size() - 1; i >= 1; i--) {
 //                if (sortedList.get(i-1) > sortedList.get(i)) {
@@ -75,8 +72,9 @@ public class ListTutorial {
 //        }
 //
 //        return sortedList;
-        Collections.sort(sortedList);
-        return sortedList;
+
+         return list1.stream().sorted(Comparator.nullsLast(Comparator.naturalOrder())).toList();
+
     }
 
 
