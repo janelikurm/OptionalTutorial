@@ -50,4 +50,8 @@ class ListTutorialTest {
     void sortList() {
         assertEquals(asList(1, 2, 3, 5, 8), listTutorial.sortList(asList(5, 3, 8, 2, 1)));
     }
+    @Test
+    void sortListWithNegativeValues() {
+        assertEquals(asList(-6, -2, 0, 1, 2, 4, 5, 8, 9), listTutorial.sortList(asList(9, 5, 1, 0, 2, -2, -6, 8, 4)));
+    }
 }
