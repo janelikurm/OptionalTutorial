@@ -31,7 +31,6 @@ public class ListTutorial {
 //        List<Integer> newList = new ArrayList<>();
 //        newList.addAll(list1);
 //        newList.addAll(list2);
-//
 //        return newList;
 
         return Stream.concat(list1.stream(), list2.stream()).toList();
@@ -56,9 +55,9 @@ public class ListTutorial {
     }
 
     List<Integer> sortList(List<Integer> list1) {
-//
-        List<Integer> sortedList = new ArrayList<>(list1);
-////
+
+        //List<Integer> sortedList = new ArrayList<>(list1);
+
 //        for (int j = 0; j < sortedList.size(); j++) {
 //            for (int i = sortedList.size() - 1; i >= 1; i--) {
 //                if (sortedList.get(i-1) > sortedList.get(i)) {
@@ -70,8 +69,8 @@ public class ListTutorial {
 //                }
 //            }
 //        }
-//
 //        return sortedList;
+
         return list1.stream()
                 .filter(nullValue -> nullValue != null)
                 .sorted()
@@ -79,12 +78,9 @@ public class ListTutorial {
 
 
 //         return list1.stream().sorted(Comparator.nullsLast(Comparator.naturalOrder())).toList();
-// see kood viib null valued l6ppu
+//         see kood viib null valued l6ppu
+
     }
-
-
-
-
 }
 
 
