@@ -15,4 +15,19 @@ class StandardInOutTest {
     void reverseWords_more() {
         assertEquals("Britain Great of capital the is London", standardInOut.reverseWords("London is the capital of Great  Britain"));
     }
+
+    @Test
+    void reverseWordsCharacters() {
+        assertEquals("?eman ruoy si tahW", standardInOut.reverseWordsCharacters("What is your name?"));
+    }
+
+    @Test
+    void reverseWordsAndCharacters() {
+        assertEquals("?eman ruoy si tahW", standardInOut.reverseWordsCharacters("What is your name?"));
+    }
+
+    @Test
+    void reverseWordsAndCharactersWithWhitespace() {
+        assertEquals("?eman ruoy si tahW", standardInOut.reverseWordsAndCharactersShort("What  is your name?"));
+    }
 }
