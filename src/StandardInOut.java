@@ -1,9 +1,33 @@
 import java.util.Arrays;
+import java.util.Scanner;
 
 public class StandardInOut {
 
 
-    public String reverseWords(String input) {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Give me some string");
+        String answer = scanner.nextLine();
+        System.out.println("Press 1 if you would like to reverse words in the sentence, press 2 if you would like to reverse letters in words and press 3 if you would like to both");
+        int choice = scanner.nextInt();
+        userChoiceControl(scanner, answer, choice);
+    }
+
+    private static void userChoiceControl(Scanner scanner, String answer, int choice) {
+        if (choice == 1) {
+            System.out.println(reverseWords(answer));
+        } else if (choice == 2) {
+            System.out.println(reverseWordsCharacters(answer));
+        } else if (choice == 3) {
+            System.out.println(reverseWordsAndCharactersShort(answer));
+        } else {
+            System.out.println("Please provide correct number from 1 to 3");
+            userChoiceControl(scanner, answer, scanner.nextInt());
+        }
+    }
+
+
+    public static String reverseWords(String input) {
         String[] words = input.split("\s+");
         StringBuilder reverseString = new StringBuilder();
 
@@ -14,11 +38,10 @@ public class StandardInOut {
                 reverseString.append(words[i]).append(" ");
             }
         }
-        System.out.println(reverseString);
         return reverseString.toString();
     }
 
-    public String reverseWordsCharacters(String input) {
+    public static String reverseWordsCharacters(String input) {
 
         String[] split = reverseWords(input).split("\s+");
         StringBuilder reverseString = new StringBuilder();
@@ -35,7 +58,7 @@ public class StandardInOut {
 
     }
 
-    public String reverseWordsAndCharactersShort(String input) {
+    public static String reverseWordsAndCharactersShort(String input) {
         StringBuilder sb = new StringBuilder(input.replaceAll("\\s+", " "));
         return sb.reverse().toString();
     }
