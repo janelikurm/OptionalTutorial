@@ -72,9 +72,14 @@ public class ListTutorial {
 //        }
 //
 //        return sortedList;
+        return list1.stream()
+                .filter(nullValue -> nullValue != null)
+                .sorted()
+                .toList();
 
-         return list1.stream().sorted(Comparator.nullsLast(Comparator.naturalOrder())).toList();
 
+//         return list1.stream().sorted(Comparator.nullsLast(Comparator.naturalOrder())).toList();
+// see kood viib null valued l6ppu
     }
 
 
