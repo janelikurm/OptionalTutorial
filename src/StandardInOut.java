@@ -55,7 +55,6 @@ public class StandardInOut {
             reverseString.append(result).append(" ");
         }
         return reverseString.toString().trim();
-
     }
 
     public static String reverseWordsAndCharactersShort(String input) {
