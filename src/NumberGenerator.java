@@ -18,10 +18,14 @@ public class NumberGenerator {
         Scanner scanner = new Scanner(System.in);
         Random random = new Random();
         int secretNumber = random.nextInt(1, 101);
-        System.out.println(secretNumber);
         System.out.println("Hello! I've generated a random number between 1 and 100. Please guess what?");
         String input = scanner.nextLine();
+        inputControl(scanner, secretNumber, input);
+        System.out.println("You have finished the game. Bye!");
 
+    }
+
+    private static void inputControl(Scanner scanner, int secretNumber, String input) {
         while (!input.equals("exit")) {
 //            input.matches("\\d+");
             try {
@@ -33,7 +37,7 @@ public class NumberGenerator {
                     break;
                 } else if (userGuess < secretNumber) {
                     System.out.println("The number is bigger than you guessed. Please try again!");
-                } else if (userGuess > secretNumber) {
+                } else {
                     System.out.println("The number is smaller than you guessed. Please try again!");
                 }
 
@@ -42,7 +46,6 @@ public class NumberGenerator {
             }
             input = scanner.next();
         }
-        System.out.println("You have finished the game. Bye!");
     }
 }
 
