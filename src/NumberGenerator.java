@@ -36,11 +36,13 @@ public class NumberGenerator {
                 } else if (userGuess > secretNumber) {
                     System.out.println("The number is smaller than you guessed. Please try again!");
                 }
+
             } catch (NumberFormatException numberFormatException) {
                 System.out.println("If you would like to continue the game please provide number between 1 to 100. If you would like to finish the game, please write 'exit'.");
             }
             input = scanner.next();
-        } System.out.println("You have finished the game. Bye!");
+        }
+        System.out.println("You have finished the game. Bye!");
     }
 }
 
